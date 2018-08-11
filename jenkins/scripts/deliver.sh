@@ -32,7 +32,7 @@ rm -f Dockerfile
 
 echo   "FROM frolvlad/alpine-oraclejdk8:slim" >> Dockerfile
 echo   "VOLUME /tmp" >> Dockerfile
-echo   "ADD {$PWD}/target/${NAME}-${VERSION}.jar  app.jar"  >> Dockerfile
+echo   "ADD  $PWD/target/${NAME}-${VERSION}.jar  app.jar"  >> Dockerfile
 echo   'ENTRYPOINT ["java","-jar","/app.jar"]' >> Dockerfile
 
 echo "生成 Dockerfile"
