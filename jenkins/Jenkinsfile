@@ -16,5 +16,12 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+       stage('Pub') {
+                    agent {
+                         docker 'frolvlad/alpine-oraclejdk8:slim'
+                         args '-v /root/.m2/repository/com/mysoft/log-test/1.0.0/:/data'
+                         sh 'java -jar  /data/log-test-1.0.0.jar --server.port=8081'
+                    }
+         }
     }
 }
