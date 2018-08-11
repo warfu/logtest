@@ -38,17 +38,6 @@ echo   'ENTRYPOINT ["java","-jar","/app.jar"]' >> Dockerfile
 echo "生成 Dockerfile"
 
 
-echo "开始 构建镜像  solcloud "
-#构建镜像
-docker build -t solcloud .
-
-echo " 镜像 solcloud 构建完成"
-
-echo " 开始启动 容器 solcloud"
-#启动容器
-docker run -d --name solcloud  -p 9080:8080 solcloud:latest
-
-echo "  容器 solcloud 启动完成"
 
 
 
