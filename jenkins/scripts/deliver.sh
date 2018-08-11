@@ -27,13 +27,16 @@ set -x
 
 
 echo "删除 Dockerfile"
-rm -f ${WORKSPACE}/Dockerfile
+
+dockerFile= ${WORKSPACE}/Dockerfile
+
+rm -f ../Dockerfile
 
 
-echo   "FROM frolvlad/alpine-oraclejdk8:slim" >> ${WORKSPACE}/Dockerfile
-echo   "VOLUME /tmp" >> ../Dockerfile
-echo   "ADD  $PWD/target/${NAME}-${VERSION}.jar  app.jar"  >> ${WORKSPACE}/Dockerfile
-echo   'ENTRYPOINT ["java","-jar","/app.jar"]' >> ${WORKSPACE}/ Dockerfile
+echo   "FROM frolvlad/alpine-oraclejdk8:slim" >> ../Dockerfile
+echo   "VOLUME /tmp" >>  ../Dockerfile
+echo   "ADD  target/${NAME}-${VERSION}.jar  app.jar"  >> ../Dockerfile
+echo   'ENTRYPOINT ["java","-jar","/app.jar"]' >> ../Dockerfile
 
 echo "生成 Dockerfile"
 

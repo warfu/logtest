@@ -17,9 +17,13 @@ pipeline {
             }
         }
          stage('构建镜像'){
+             agent any
              steps {
-               echo "start build image"
-                sh 'docker build -t springboot-demo:1.0 .'
+                 script {
+                            pom = readMavenPom file: 'pom.xml'
+                            TAG = pom.version
+                            sh "docker build -t log-test:${TAG} ."
+                        }
             }
         }
 
