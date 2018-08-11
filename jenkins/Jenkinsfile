@@ -19,9 +19,7 @@ pipeline {
          stage('构建镜像'){
              steps {
                echo "start build image"
-              //build镜像
-                bat 'docker build -t springboot-demo:1.0 .'
-
+                sh 'docker build -t springboot-demo:1.0 .'
             }
         }
 
