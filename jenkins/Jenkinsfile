@@ -17,7 +17,9 @@ pipeline {
             }
         }
        stage('Pub') {
+            steps {
                 agent { dockerfile true }
+            }
          }
     }
 }
