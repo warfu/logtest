@@ -16,10 +16,12 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-       stage('Pub') {
-            steps {
-                agent { dockerfile true }
-            }
-         }
+      stage('Example Test') {
+          agent { docker 'openjdk:8-jre' }
+          steps {
+              echo 'Hello, JDK'
+              sh 'java -version'
+          }
+      }
     }
 }
