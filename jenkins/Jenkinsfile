@@ -16,11 +16,6 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
-         stage('Example Test') {
-                 docker {
-                      image 'frolvlad/alpine-oraclejdk8:slim'
-                      label 'my-defined-label'
-                  }
-         }
     }
+    agent { dockerfile true }
 }
