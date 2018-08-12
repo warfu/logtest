@@ -21,11 +21,7 @@ pipeline {
          stage('构建镜像'){
              agent any
              steps {
-                 script {
-                            pom = readMavenPom file: 'pom.xml'
-                            TAG = pom.version
-                            sh "docker build -t log-test:${TAG} ."
-                        }
+                      sh "docker build -t log-test:102 ."
             }
         }
 
