@@ -12,14 +12,11 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
-             steps {
-                sh 'mvn deploy:deploy-file'
-              }
         }
-        stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
+        stage('deploy') {
+              steps {
+                    sh 'mvn deploy:deploy-file'
+               }
         }
     }
 }
